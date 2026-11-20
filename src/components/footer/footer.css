@@ -202,4 +202,9 @@
     grid-template-columns: 1fr;
     gap: 2rem;
   }
+
+  /* Extra bottom padding so the fixed bottom nav never overlaps footer content */
+  .footer {
+    padding-bottom: calc(60px + 1.5rem + env(safe-area-inset-bottom, 0px));
+  }
 }
