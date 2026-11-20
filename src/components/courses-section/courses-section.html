@@ -1,0 +1,48 @@
+<section class="courses-section" id="courses">
+  <div class="container">
+    <!-- Section Header + Filter Pills -->
+    <div class="section-header">
+      <div class="header-text">
+        <span class="section-eyebrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+          </svg>
+          <span>المسارات التعليمية والتطبيقية</span>
+        </span>
+
+        <h2 class="section-title">الدورات التدريبية والبرامج التخصصية</h2>
+        <p class="section-subtitle">
+          اختر مجالك للتأهيل لسوق العمل الهندسي والمساحي وتدرب خطوة بخطوة مع نخبة من مهندسي المساحة الميدانية.
+        </p>
+      </div>
+
+      <!-- Horizontal Scrollable Filter Tabs -->
+      <div class="filter-bar" role="tablist" aria-label="تصفية الكورسات حسب التخصص">
+  @for (tab of coursesService.filterTabs(); track tab.id) {
+    <button
+      type="button"
+      role="tab"
+      class="filter-pill"
+      [class.active]="coursesService.selectedCategory() === tab.id"
+      [attr.aria-selected]="coursesService.selectedCategory() === tab.id"
+      (click)="coursesService.setCategory(tab.id)"
+    >
+      {{ tab.label | bidiIsolate }}
+    </button>
+  }
+</div>
+    </div>
+
+    <!-- Responsive Courses Grid -->
+    <div class="courses-grid">
+      @for (course of coursesService.filteredCourses(); track course.id) {
+        <app-course-card [course]="course" />
+      } @empty {
+        <div class="empty-state">
+          <p>لا توجد دورات متاحة في هذا التصنيف حالياً.</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

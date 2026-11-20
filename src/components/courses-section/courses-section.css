@@ -1,0 +1,118 @@
+.courses-section {
+  padding-block: 4rem;
+  background-color: var(--bg-canvas);
+}
+
+.section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2.25rem;
+}
+
+.header-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.65rem;
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.32rem 0.85rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary-deep);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.section-title {
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  font-weight: 700;
+  color: var(--text-heading);
+  line-height: 1.45;
+}
+
+.section-subtitle {
+  font-size: 0.975rem;
+  color: var(--text-muted);
+  max-width: 56ch;
+  line-height: 1.75;
+}
+
+/* Filter Bar (Touch Scrollable on Mobile) */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+  scrollbar-width: none;
+}
+
+.filter-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.filter-pill {
+  height: 40px;
+  padding-inline: 1.1rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface);
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+
+.filter-pill:hover {
+  border-color: var(--border-hover);
+  color: var(--text-heading);
+}
+
+.filter-pill.active {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #ffffff;
+  box-shadow: var(--shadow-sm);
+}
+
+/* 3 -> 2 -> 1 Responsive Grid */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-muted);
+  background-color: var(--bg-surface);
+  border: 1px dashed var(--border-subtle);
+  border-radius: var(--radius-lg);
+}
+
+@media (max-width: 1024px) {
+  .courses-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .courses-section {
+    padding-block: 3rem;
+  }
+
+  .courses-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}

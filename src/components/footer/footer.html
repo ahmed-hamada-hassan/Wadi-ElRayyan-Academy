@@ -1,0 +1,87 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Column 1: Brand -->
+      <div class="footer-col">
+        <div class="footer-brand">
+  <img
+    src="/wadi-elrayyan-academy.jpg"
+    [alt]="settings().academyName"
+    class="footer-logo"
+    width="38"
+    height="38"
+  />
+  <h3 class="footer-title">{{ settings().academyName }}</h3>
+</div>
+        <p class="footer-desc">
+          الصرح التعليمي المتخصص في التأهيل الميداني للكوادر الهندسية والمساحية ونظم المعلومات الجغرافية والمكاتب الفنية.
+        </p>
+      </div>
+
+      <!-- Column 2: Contact & Location -->
+      <div class="footer-col">
+        <h4 class="footer-heading">بيانات المقر والتواصل</h4>
+        <ul class="contact-list">
+          <li class="contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            <span>{{ settings().address }}</span>
+          </li>
+
+          <li class="contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <a [href]="'tel:' + settings().displayPhone" class="contact-link mono-num">
+              {{ settings().displayPhone }}
+            </a>
+          </li>
+
+          <li class="contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            <span>مواعيد العمل: {{ settings().workingHours }}</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Accreditation -->
+      <div class="footer-col">
+        <h4 class="footer-heading">الاعتماد الأكاديمي والتوثيق</h4>
+        <div class="cert-box">
+          <div class="cert-box-head">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+            <span>شهادة معتمدة وموثقة</span>
+          </div>
+          <p class="cert-box-text">{{ settings().certificateNote }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Centered Bottom Copyright & Credits Bar -->
+    <div class="footer-bottom">
+      <p>© {{ currentYear }} {{ settings().academyName }} {{ settings().academySubTitle }}. جميع الحقوق محفوظة.</p>
+      <p class="brand-en mono-num">WADI ELRAYYAN SURVEY ACADEMY</p>
+      <div class="created-by-wrap">
+        <span class="created-by" dir="ltr">
+          Created By
+          <a
+            href="https://ahmed-hamada-ahmed.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="dev-link"
+          >
+            Ahmed Hamada
+          </a>
+        </span>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,116 @@
+<section class="hero" id="top">
+  <!-- Topographic SVG Contour Background -->
+  <div class="hero-bg" aria-hidden="true">
+    <svg viewBox="0 0 1440 800" fill="none" stroke="currentColor" stroke-width="1.2" preserveAspectRatio="xMidYMid slice">
+      <path d="M-100,150 C200,90 450,230 800,160 C1150,90 1350,210 1600,140" opacity="0.09" />
+      <path d="M-100,260 C180,220 420,360 780,270 C1140,180 1320,340 1600,250" opacity="0.08" />
+      <path d="M-100,390 C220,340 480,470 820,380 C1160,290 1380,440 1600,370" opacity="0.07" />
+      <path d="M-100,520 C190,480 440,590 790,500 C1140,410 1330,550 1600,480" opacity="0.06" />
+      <g opacity="0.1" stroke-width="1">
+        <path d="M120 70v20M110 80h20M420 200v20M410 210h20M880 130v20M870 140h20M1240 250v20M1230 260h20M280 510v20M270 520h20" />
+      </g>
+    </svg>
+  </div>
+
+  <div class="container hero-grid">
+    <!-- Right Column (Text & CTAs) -->
+    <div class="hero-content">
+      <div class="eyebrow-pill">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+        </svg>
+        <span>{{ settings().heroEyebrow }}</span>
+      </div>
+
+      <h1 class="hero-title">
+        ابدأ مسارك المهني مع
+        <span class="academy-highlight">{{ settings().academyName }}</span>
+      </h1>
+
+      <p class="hero-bio">
+        {{ settings().heroBio | bidiIsolate }}
+      </p>
+
+      @if (settings().showPromoBanner) {
+        <div class="promo-pill">
+          <span class="promo-icon" aria-hidden="true">⚡</span>
+          <span>{{ settings().promoBannerText }}</span>
+        </div>
+      }
+
+      <div class="hero-ctas">
+        <a 
+            routerLink="/courses" 
+            routerLinkActive="active" 
+            [routerLinkActiveOptions]="{ exact: true }" 
+            class="btn-primary">
+          <span>استكشف الكورسات المتاحة</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 5v14M19 12l-7 7-7-7"/>
+          </svg>
+        </a>
+
+        <a
+          [href]="coursesService.getWhatsAppUrl()"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-wa-outline"
+        >
+          <span>استفسر عبر واتساب</span>
+        </a>
+      </div>
+
+      <!-- Quick Metrics -->
+      <div class="hero-metrics">
+        @for (item of settings().metrics; track item.label) {
+    <div class="metric">
+      <span
+        class="metric-val"
+        [class.teal]="item.accent === 'teal'"
+        [class.amber]="item.accent === 'amber'"
+        [attr.dir]="isNumeric(item.value) ? 'ltr' : null"
+      >
+        {{ item.value }}
+      </span>
+      <span class="metric-label">{{ item.label }}</span>
+    </div>
+  }
+      </div>
+    </div>
+
+    <!-- Left Column (Academy Circular Emblem) -->
+    <div class="hero-visual">
+      <div class="emblem-glow" aria-hidden="true"></div>
+
+      <div class="emblem-frame">
+        <div class="emblem-ring-dashed" aria-hidden="true"></div>
+        <div class="emblem-ring-solid" aria-hidden="true"></div>
+
+        <div class="emblem-avatar">
+          <img
+            src="/wadi-elrayyan-academy.jpg"
+            [alt]="settings().academyName"
+            width="280"
+            height="280"
+          />
+        </div>
+
+        <!-- Floating Coordinates Pill -->
+        <div class="float-badge coord-badge">
+          <span class="dot" aria-hidden="true"></span>
+          <span class="mono-num">{{ settings().coordinates }}</span>
+        </div>
+
+        <!-- Floating Accreditation Pill -->
+        <div class="float-badge cert-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          <span>اعتماد أكاديمي موثق</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
